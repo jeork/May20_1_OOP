@@ -3,7 +3,7 @@ import java.util.Random;
 public class Computer {
 
 	User u = new User();
-	int num_coin;
+	int num_coin = 20;
 	int coin;
 	String user_answer;
 	String result;
@@ -14,9 +14,9 @@ public class Computer {
 	}
 
 	// 동전 섞기
-	public int mix_coin(int num_coin) {
+	public int mix_coin(User u) {
 		Random r = new Random();
-		coin = r.nextInt(num_coin) + 1;
+		coin = r.nextInt(u.num_coin) + 1;
 		return coin;
 	}
 
@@ -26,7 +26,7 @@ public class Computer {
 	}
 
 	// 게임 결과 알려주기
-	public void result_game(int coin, String user_answer) {
+	public void result_game(User u) {
 		String result = null;
 		System.out.println("동전 : " + coin);
 		if (coin % 2 == 0) {
@@ -36,18 +36,18 @@ public class Computer {
 			result = "홀";
 			System.out.println("정답 : 홀");
 		}
-		if (user_answer.equals(result))
+		if (u.user_answer.equals(result))
 			System.out.println("정답!");
 		else
 			System.out.println("땡!");
 	}
 
-	public void start() {
-		this.ask_coin();
-		int num_coin = u.coin_answer();
-		int mixed_coin = mix_coin(num_coin);
+	public void start(User u) {
+		ask_coin();
+		u.coin_answer();
+		mix_coin(u);
 		ask_answer();
-		String user_answer = u.result_answer();
-		result_game(mixed_coin, user_answer);
+		u.result_answer();
+		result_game(u);
 	}
 }

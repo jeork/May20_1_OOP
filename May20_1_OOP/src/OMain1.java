@@ -17,6 +17,7 @@ public class OMain1 {
 	// 메인 메소드
 	public static void main(String[] args) {
 		Computer c = new Computer();
-		c.start();
+		User u = new User();
+		c.start(u);
 	}
 }
