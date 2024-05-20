@@ -45,9 +45,9 @@ public class Computer {
 	public void start() {
 		this.ask_coin();
 		int num_coin = u.coin_answer();
-		int mix_coin = mix_coin(num_coin);
+		int mixed_coin = mix_coin(num_coin);
 		ask_answer();
 		String user_answer = u.result_answer();
-		result_game(mix_coin, user_answer);
+		result_game(mixed_coin, user_answer);
 	}
 }
